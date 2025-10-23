@@ -12,8 +12,10 @@
       color: #333;
       line-height: 1.6;
     }
+
+    /* ===== HEADER ===== */
     header {
-      background: #4a6fa5; /* Good contrast with logos */
+      background: #4a6fa5;
       color: white;
       padding: 30px 20px;
       text-align: center;
@@ -27,7 +29,18 @@
       border-radius: 50%;
       height: 150px;
       margin-top: 15px;
+      border: 4px solid white;
     }
+    header h1 {
+      margin: 10px 0 5px 0;
+      font-size: 2em;
+    }
+    header p {
+      margin: 5px 0;
+      font-size: 1em;
+    }
+
+    /* ===== SECTIONS ===== */
     section {
       max-width: 900px;
       margin: 30px auto;
@@ -43,9 +56,12 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      font-size: 1.4em;
+      margin-bottom: 15px;
     }
     ul {
-      margin: 0; padding-left: 20px;
+      margin: 0;
+      padding-left: 20px;
       list-style-type: square;
     }
     li {
@@ -57,6 +73,52 @@
     }
     a:hover {
       text-decoration: underline;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 768px) {
+      header img {
+        height: 40px;
+        margin: 5px;
+      }
+      header .profile {
+        height: 120px;
+      }
+      header h1 {
+        font-size: 1.5em;
+      }
+      header p {
+        font-size: 0.95em;
+      }
+      section {
+        margin: 20px 10px;
+        padding: 15px;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 20px 10px;
+      }
+      header .profile {
+        height: 100px;
+      }
+      header h1 {
+        font-size: 1.3em;
+      }
+      section {
+        margin: 15px 5px;
+        padding: 12px;
+      }
+      ul {
+        padding-left: 15px;
+      }
+      li {
+        font-size: 0.95em;
+      }
     }
   </style>
 </head>
@@ -73,16 +135,8 @@
 
     <h1>Jonathan Marbaniang</h1>
     <p>Scientist-B & Assistant Director (IT) | Technologist | Innovator</p>
-    <p><b>National Informatics Centre</b> | District Informatics Officer, Ri Bhoi District, Meghalaya</p>
+    <p>Currently at <b>National Informatics Centre</b> | District Informatics Officer, Ri Bhoi District, Meghalaya</p>
   </header>
-
-  <section>
-    <h2>👤 About Me</h2>
-    <p>
-      I am Jonathan Marbaniang, passionate about technology, innovation, and solving real-world challenges.
-      Associated with the <b>National Informatics Centre</b> and an alumnus of <b>IIT Hyderabad</b>.
-    </p>
-  </section>
 
   <section>
     <h2>💼 Work Experience</h2>
@@ -113,7 +167,9 @@
       <li>
         <b>Master of Technology (M.Tech)</b>, Computer Science and Engineering<br>
         <i>Indian Institute of Technology, Hyderabad</i><br>
-        Thesis: <i>Garbage collection in Concurrent sets</i><br>
+        Thesis: <a href="https://raiithold.iith.ac.in/4146/1/Thesis_Mtech_CS_4146.pdf" target="_blank">
+          <i>GCList: Garbage Collection in Concurrent Sets</i>
+        </a><br>
         CGPA: 8.75
       </li>
       <li>
