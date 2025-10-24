@@ -7,56 +7,62 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      background: white;
       color: #333;
       line-height: 1.6;
     }
 
     /* ===== HEADER ===== */
     header {
-      background: #4a6fa5;
-      color: white;
-      padding: 30px 20px;
+      background: white;
+      color: #222;
+      padding: 40px 20px 30px;
       text-align: center;
+      border-bottom: 2px solid #eee;
     }
-    header img {
-      height: 60px;
-      margin: 10px;
+    header img.logo {
+      height: 70px;
+      margin: 10px 20px;
       vertical-align: middle;
     }
     header .profile {
+      display: block;
       border-radius: 50%;
-      height: 150px;
-      margin-top: 15px;
-      border: 4px solid white;
+      height: 200px;
+      width: 200px;
+      object-fit: cover;
+      margin: 25px auto 10px auto;
+      border: 3px solid #ccc;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     header h1 {
-      margin: 10px 0 5px 0;
+      margin: 15px 0 5px 0;
       font-size: 2em;
+      color: #222;
     }
     header p {
-      margin: 5px 0;
-      font-size: 1em;
+      margin: 4px 0;
+      font-size: 1.05em;
+      color: #555;
     }
 
     /* ===== SECTIONS ===== */
     section {
       max-width: 900px;
       margin: 30px auto;
-      padding: 20px;
-      background: white;
+      padding: 25px 20px;
+      background: #fafafa;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      color: #004080;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
     h2 {
       display: flex;
       align-items: center;
       gap: 10px;
       font-size: 1.4em;
+      color: #222;
       margin-bottom: 15px;
     }
     ul {
@@ -68,7 +74,7 @@
       margin-bottom: 10px;
     }
     a {
-      color: #004080;
+      color: #0066cc;
       text-decoration: none;
     }
     a:hover {
@@ -77,41 +83,43 @@
 
     /* ===== RESPONSIVE DESIGN ===== */
     @media (max-width: 768px) {
-      header img {
-        height: 40px;
-        margin: 5px;
+      header img.logo {
+        height: 50px;
+        margin: 8px;
       }
       header .profile {
-        height: 120px;
+        height: 160px;
+        width: 160px;
       }
       header h1 {
-        font-size: 1.5em;
+        font-size: 1.6em;
       }
       header p {
         font-size: 0.95em;
       }
       section {
         margin: 20px 10px;
-        padding: 15px;
-      }
-      h2 {
-        font-size: 1.2em;
+        padding: 18px;
       }
     }
 
     @media (max-width: 480px) {
       header {
-        padding: 20px 10px;
+        padding: 25px 10px;
       }
       header .profile {
-        height: 100px;
+        height: 130px;
+        width: 130px;
       }
       header h1 {
         font-size: 1.3em;
       }
+      header p {
+        font-size: 0.9em;
+      }
       section {
         margin: 15px 5px;
-        padding: 12px;
+        padding: 15px;
       }
       ul {
         padding-left: 15px;
@@ -126,12 +134,11 @@
 
   <header>
     <!-- Logos -->
-    <img src="nic.svg" alt="NIC Logo">
-    <img src="iith.png" alt="IIT Hyderabad Logo">
+    <img src="nic.svg" alt="NIC Logo" class="logo">
+    <img src="iith.png" alt="IIT Hyderabad Logo" class="logo">
 
     <!-- Profile Photo -->
-    <br>
-    <img src="joe.jpg" alt="My Photo" class="profile">
+    <img src="joe.jpg" alt="Profile Photo" class="profile">
 
     <h1>Jonathan Marbaniang</h1>
     <p>Scientist - B & Assistant Director (IT) | Technologist | Innovator</p>
@@ -187,12 +194,6 @@
       <li>Completed advanced research work at IIT Hyderabad in the field of Parallel and Concurrent Programming.</li>
       <li>Awarded Best M.Tech project 2018, by AMD.</li>
     </ul>
-  </section>
-
-  <section>
-    <h2>📬 Contact</h2>
-    <p>Email: <a href="mailto:jm.marbaniang@gmail.com">jm.marbaniang@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/Joe-Marbaniang" target="_blank">github.com/Joe-Marbaniang</a></p>
   </section>
 
 </body>
