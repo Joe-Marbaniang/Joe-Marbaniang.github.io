@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jonathan Marbaniang | Portfolio</title>
 
   <!-- SEO -->
@@ -12,246 +12,300 @@
   <meta name="google-site-verification" content="ziZlJOB6DkZxDoWWtDQijPp4EDjFnA0uhBHtkQr9A28" />
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
+    :root{
+      --accent: #004080;
+      --muted: #555;
+      --card-bg: #ffffff;
+    }
+
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      margin:0;
+      padding:0;
       background: #ffffff;
       color: #333;
       line-height: 1.6;
     }
 
-    /* ===== HEADER ===== */
-    header {
-      text-align: center;
-      padding: 40px 20px;
+    header{
+      text-align:center;
+      padding: 42px 20px 28px;
     }
-    header img.logo {
+
+    /* Logos */
+    header img.logo{
       height: 60px;
       margin: 10px;
       vertical-align: middle;
-      transition: transform 0.2s;
+      transition: transform .15s ease;
     }
-    header img.logo:hover {
-      transform: scale(1.05);
-    }
-    header .profile {
+    header img.logo:hover{ transform: scale(1.05); }
+
+    /* PROFILE - fixed square dimensions so border-radius:50% yields a perfect circle */
+    .profile-wrap{
+      display: block;
+      width: 240px;   /* desktop size */
+      height: 240px;
+      margin: 18px auto;
       border-radius: 50%;
-      height: 180px;
-      margin-top: 15px;
-      border: 3px solid #ccc;
+      overflow: hidden;
+      border: 4px solid #ddd;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
       cursor: pointer;
-      transition: transform 0.3s;
+      transition: transform .25s ease;
+      background: #f3f3f3;
     }
-    header .profile:hover {
-      transform: scale(1.05);
+    .profile-wrap:hover{ transform: scale(1.03); }
+
+    .profile-wrap img{
+      width:100%;
+      height:100%;
+      object-fit: cover; /* ensures proper cropping without distortion */
+      display:block;
     }
-    header h1 {
-      margin: 15px 0 5px;
-      font-size: 2em;
+
+    header h1{
+      margin: 14px 0 6px;
+      font-size: 2.2rem;
       color: #222;
     }
-    header p {
-      margin: 5px 0;
-      font-size: 1em;
-      color: #555;
-    }
+    header p{ margin:4px 0; color:var(--muted); font-size:1.02rem; }
 
-    /* ===== SECTIONS ===== */
-    section {
-      max-width: 900px;
-      margin: 30px auto;
+    main{ padding-bottom: 60px; }
+
+    section{
+      max-width: 920px;
+      margin: 28px auto;
       padding: 20px;
-      background: white;
+      background: var(--card-bg);
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    h2 {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.4em;
-      margin-bottom: 15px;
-      color: #004080;
-    }
-    ul {
-      margin: 0;
-      padding-left: 20px;
-      list-style-type: square;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    a {
-      color: #004080;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
 
-    /* ===== MODAL STYLES ===== */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.8);
+    h2{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--accent);
+      font-size:1.35rem;
+      margin-bottom:14px;
     }
-    .modal-content {
-      display: block;
-      margin: 5% auto;
-      max-width: 80%;
+
+    ul{ padding-left:20px; list-style-type: square; margin:0; }
+    li{ margin-bottom:10px; }
+
+    a{ color: var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    /* IMAGE MODAL */
+    .modal{
+      display:none;
+      position:fixed;
+      z-index:1200;
+      inset:0;
+      background: rgba(0,0,0,0.8);
+      align-items:center;
+      justify-content:center;
+      padding: 24px;
+    }
+    .modal.open{ display:flex; }
+
+    .modal-inner{
+      position:relative;
+      max-width: 96%;
+      max-height: 92vh;
+      width: auto;
       border-radius: 10px;
-    }
-    .close {
-      position: absolute;
-      top: 20px; right: 35px;
-      color: white;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .close:hover {
-      color: #ccc;
+      overflow: hidden;
+      background: transparent;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      header .profile {
-        height: 140px;
-      }
-      h2 {
-        font-size: 1.2em;
-      }
-      section {
-        margin: 20px 10px;
-      }
+    .modal-inner img{
+      display:block;
+      max-width:100%;
+      max-height: 92vh;
+      width: auto;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+
+    .modal-close{
+      position:absolute;
+      top: 8px;
+      right: 10px;
+      color: #fff;
+      font-size: 28px;
+      line-height: 28px;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius:6px;
+      background: rgba(0,0,0,0.25);
+      transition: background .15s;
+    }
+    .modal-close:hover{ background: rgba(255,255,255,0.12); }
+
+    /* Responsive sizes */
+    @media (max-width: 900px){
+      .profile-wrap{ width:200px; height:200px; }
+    }
+    @media (max-width: 640px){
+      header{ padding: 28px 12px 18px; }
+      .profile-wrap{ width:160px; height:160px; }
+      header h1{ font-size:1.6rem; }
+      section{ margin:18px 12px; padding:16px; }
+      h2{ font-size:1.15rem; }
+    }
+    @media (max-width: 420px){
+      .profile-wrap{ width:140px; height:140px; }
+      header h1{ font-size:1.35rem; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- Logos with hyperlinks -->
-    <a href="https://meg.nic.in/directory/" target="_blank">
+    <a href="https://meg.nic.in/directory/" target="_blank" aria-label="NIC website">
       <img src="nic.svg" alt="NIC Logo" class="logo">
     </a>
-    <a href="https://www.iith.ac.in/" target="_blank">
+
+    <a href="https://www.iith.ac.in/" target="_blank" aria-label="IIT Hyderabad website">
       <img src="iith.png" alt="IIT Hyderabad Logo" class="logo">
     </a>
 
-    <!-- Profile Photo -->
-    <br>
-    <img src="joe.jpg" alt="My Photo" id="profileImg" class="profile">
+    <!-- clickable circular wrapper -->
+    <a href="#" id="profileTrigger" class="profile-wrap" aria-label="Open full profile photo">
+      <img src="joe.jpg" alt="Jonathan Marbaniang profile photo" id="profileImg">
+    </a>
 
     <h1>Jonathan Marbaniang</h1>
-    <p>Scientist - B & Assistant Director (IT) | Technologist | Innovator</p>
-    <p><b>National Informatics Centre</b> | District Informatics Officer, Ri Bhoi District, Meghalaya</p>
+    <p>Scientist - B &amp; Assistant Director (IT) | Technologist | Innovator</p>
+    <p>
+      <a href="https://meg.nic.in/directory/" target="_blank"><strong>National Informatics Centre</strong></a>
+      &nbsp;|&nbsp;
+      <a href="https://ribhoi.gov.in/nic/" target="_blank">District Informatics Officer, Ri Bhoi District, Meghalaya</a>
+    </p>
   </header>
 
-  <!-- Modal for Image -->
-  <div id="imgModal" class="modal">
-    <span class="close" id="closeModal">&times;</span>
-    <img class="modal-content" id="modalImg">
+  <main>
+    <section>
+      <h2>💼 Work Experience</h2>
+      <ul>
+        <li>
+          <strong>Scientist-B &amp; Assistant Director (IT)</strong>,
+          <a href="https://meg.nic.in/directory/" target="_blank">National Informatics Centre, Government of India</a><br>
+          <em>13th December 2022 – Present</em><br>
+          Also posted as <strong><a href="https://ribhoi.gov.in/nic/" target="_blank">District Informatics Officer</a></strong>, Ri Bhoi District, Meghalaya.
+        </li>
+        <li>
+          <strong>Junior Informatics Officer</strong>,
+          <a href="https://ditmeghalaya.gov.in/" target="_blank">Information Technology &amp; Communication Department, Government of Meghalaya</a><br>
+          <em>17th March 2022 – 12th December 2022</em>
+        </li>
+        <li>
+          <strong>Assistant System Engineer</strong>,
+          <a href="https://megeducation.gov.in/dhte/pages/dhte.html" target="_blank">Directorate of Higher &amp; Technical Education, Government of Meghalaya</a><br>
+          <em>9th January 2020 – 16th March 2022</em>
+        </li>
+        <li>
+          <strong>Software Development Engineer</strong>, PRISM (formerly OYO)<br>
+          <em>31st July 2018 – 2nd January 2020</em>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🎓 Education</h2>
+      <ul>
+        <li>
+          <strong>Master of Technology (M.Tech)</strong>, Computer Science &amp; Engineering<br>
+          <em><a href="https://www.iith.ac.in/" target="_blank">Indian Institute of Technology, Hyderabad</a></em><br>
+          Thesis:
+          <a href="https://raiithold.iith.ac.in/4146/1/Thesis_Mtech_CS_4146.pdf" target="_blank"><em>GCList: Garbage Collection in Concurrent Sets</em></a>
+          &nbsp;(<a href="https://arxiv.org/pdf/1806.00834v2" target="_blank">arXiv</a>)<br>
+          CGPA: 8.75
+        </li>
+        <li>
+          <strong>Bachelor of Engineering (B.E.)</strong>, Computer Science &amp; Engineering<br>
+          <em>Rajiv Gandhi College of Engineering and Research, RTM Nagpur University</em><br>
+          CGPA: 8.36
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🏆 Achievements</h2>
+      <ul>
+        <li>Contributed to major e-Governance projects under the <a href="https://meg.nic.in/directory/" target="_blank">National Informatics Centre</a>.</li>
+        <li>Completed advanced research work at <a href="https://www.iith.ac.in/" target="_blank">IIT Hyderabad</a> in Parallel &amp; Concurrent Programming.</li>
+        <li>Awarded <a href="https://cse.iith.ac.in/news/2018-05-02-Achievements-Awards.html" target="_blank">Best M.Tech Project 2018 by AMD</a>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>⚽ Hobbies &amp; Interests</h2>
+      <ul>
+        <li>Football</li>
+        <li>Novels</li>
+        <li>TV Series</li>
+        <li>Anime</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- IMAGE MODAL -->
+  <div id="imgModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-inner" role="document">
+      <button class="modal-close" id="modalClose" aria-label="Close image">&times;</button>
+      <img id="modalImage" src="joe.jpg" alt="Jonathan Marbaniang - full photo">
+    </div>
   </div>
 
-  <section>
-    <h2>💼 Work Experience</h2>
-    <ul>
-      <li>
-        <b>Scientist-B & Assistant Director (IT)</b>, 
-        <a href="https://meg.nic.in/directory/" target="_blank">National Informatics Centre, Government of India</a><br>
-        <i>13th December 2022 – Present</i><br>
-        Also posted as <b><a href="https://ribhoi.gov.in/nic/" target="_blank">District Informatics Officer</a></b>, Ri Bhoi District, Meghalaya.
-      </li>
-      <li>
-        <b>Junior Informatics Officer</b>, 
-        <a href="https://ditmeghalaya.gov.in/" target="_blank">Information Technology & Communication Department, Government of Meghalaya</a><br>
-        <i>17th March 2022 – 12th December 2022</i>
-      </li>
-      <li>
-        <b>Assistant System Engineer</b>, 
-        <a href="https://megeducation.gov.in/dhte/pages/dhte.html" target="_blank">Directorate of Higher & Technical Education, Government of Meghalaya</a><br>
-        <i>9th January 2020 – 16th March 2022</i>
-      </li>
-      <li>
-        <b>Software Development Engineer</b>, PRISM (formerly OYO)<br>
-        <i>31st July 2018 – 2nd January 2020</i>
-      </li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>🎓 Education</h2>
-    <ul>
-      <li>
-        <b>Master of Technology (M.Tech)</b>, Computer Science and Engineering<br>
-        <i><a href="https://www.iith.ac.in/" target="_blank">Indian Institute of Technology, Hyderabad</a></i><br>
-        Thesis: 
-        <a href="https://raiithold.iith.ac.in/4146/1/Thesis_Mtech_CS_4146.pdf" target="_blank">
-          <i>GCList: Garbage Collection in Concurrent Sets</i>
-        </a> 
-        (<a href="https://arxiv.org/pdf/1806.00834v2" target="_blank">arXiv</a>)<br>
-        CGPA: 8.75
-      </li>
-      <li>
-        <b>Bachelor of Engineering (B.E.)</b>, Computer Science and Engineering<br>
-        <i>Rajiv Gandhi College of Engineering and Research, RTM Nagpur University</i><br>
-        CGPA: 8.36
-      </li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>🏆 Achievements</h2>
-    <ul>
-      <li>Contributed to major e-Governance projects under the National Informatics Centre (NIC).</li>
-      <li>Completed advanced research work at IIT Hyderabad in the field of Parallel and Concurrent Programming.</li>
-      <li>
-        Awarded <a href="https://cse.iith.ac.in/news/2018-05-02-Achievements-Awards.html" target="_blank">Best M.Tech project 2018, by AMD</a>.
-      </li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>⚽ Hobbies & Interests</h2>
-    <ul>
-      <li>Football</li>
-      <li>Novels</li>
-      <li>TV Series</li>
-      <li>Anime</li>
-    </ul>
-  </section>
-
   <script>
-    // Modal functionality for profile image
-    const modal = document.getElementById("imgModal");
-    const img = document.getElementById("profileImg");
-    const modalImg = document.getElementById("modalImg");
-    const closeBtn = document.getElementById("closeModal");
+    (function(){
+      const trigger = document.getElementById('profileTrigger');
+      const modal = document.getElementById('imgModal');
+      const modalClose = document.getElementById('modalClose');
+      const modalImage = document.getElementById('modalImage');
 
-    img.onclick = function() {
-      modal.style.display = "block";
-      modalImg.src = this.src;
-    }
+      // open modal
+      trigger.addEventListener('click', function(e){
+        e.preventDefault();
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+        // ensure modal image uses the same src (already set) but can be swapped if needed
+        modalImage.src = document.getElementById('profileImg').src;
+        // trap focus on close button for accessibility
+        modalClose.focus();
+      });
 
-    closeBtn.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    document.onkeydown = function(e) {
-      if (e.key === "Escape") {
-        modal.style.display = "none";
+      // close handlers
+      function closeModal(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden','true');
+        trigger.focus();
       }
-    }
+      modalClose.addEventListener('click', closeModal);
 
-    modal.onclick = function(e) {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
-    }
+      // click outside image to close
+      modal.addEventListener('click', function(e){
+        if (e.target === modal) closeModal();
+      });
+
+      // Esc key closes
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' && modal.classList.contains('open')) {
+          closeModal();
+        }
+      });
+
+      // prevent image click from bubbling (so clicking the image doesn't close)
+      modalImage.addEventListener('click', function(e){ e.stopPropagation(); });
+
+    })();
   </script>
-
 </body>
 </html>
