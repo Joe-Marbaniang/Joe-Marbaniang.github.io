@@ -1,0 +1,21 @@
+{
+  "name": "Jonathan Marbaniang | Portfolio",
+  "short_name": "J. Marbaniang",
+  "description": "Official portfolio of Jonathan Marbaniang — Scientist-B & Assistant Director (IT) at NIC. District Informatics Officer, Ri Bhoi, Meghalaya.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#004080",
+  "icons": [
+    {
+      "src": "jm.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "jm.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
