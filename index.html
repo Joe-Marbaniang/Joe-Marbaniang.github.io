@@ -62,10 +62,26 @@
     }
     header img.logo:hover{ transform: scale(1.05); }
 
-    /* PROFILE - fixed square dimensions so border-radius:50% yields a perfect circle */
+    /* Text link (replaces NIC logo) */
+    header a[aria-label="NIC website"] {
+      display:inline-block;
+      font-weight:600;
+      color:var(--accent);
+      text-decoration:none;
+      font-size:1.1rem;
+      margin:10px;
+      vertical-align:middle;
+      transition: color .2s ease;
+    }
+    header a[aria-label="NIC website"]:hover {
+      color:#0073e6;
+      text-decoration:underline;
+    }
+
+    /* PROFILE - fixed square dimensions */
     .profile-wrap{
       display: block;
-      width: 240px;   /* desktop size */
+      width: 240px;
       height: 240px;
       margin: 18px auto;
       border-radius: 50%;
@@ -81,7 +97,7 @@
     .profile-wrap img{
       width:100%;
       height:100%;
-      object-fit: cover; /* ensures proper cropping without distortion */
+      object-fit: cover;
       display:block;
     }
 
@@ -189,9 +205,7 @@
 <body>
 
   <header>
-    <a href="https://meg.nic.in/directory/" target="_blank" aria-label="NIC website">
-      <img src="nic.svg" alt="NIC Logo" class="logo">
-    </a>
+    <a href="https://meg.nic.in/directory/" target="_blank" aria-label="NIC website">National Informatics Centre</a>
 
     <a href="https://www.iith.ac.in/" target="_blank" aria-label="IIT Hyderabad website">
       <img src="iith.png" alt="IIT Hyderabad Logo" class="logo">
@@ -297,9 +311,7 @@
         e.preventDefault();
         modal.classList.add('open');
         modal.setAttribute('aria-hidden','false');
-        // ensure modal image uses the same src (already set) but can be swapped if needed
         modalImage.src = document.getElementById('profileImg').src;
-        // trap focus on close button for accessibility
         modalClose.focus();
       });
 
@@ -311,19 +323,14 @@
       }
       modalClose.addEventListener('click', closeModal);
 
-      // click outside image to close
       modal.addEventListener('click', function(e){
         if (e.target === modal) closeModal();
       });
 
-      // Esc key closes
       document.addEventListener('keydown', function(e){
-        if (e.key === 'Escape' && modal.classList.contains('open')) {
-          closeModal();
-        }
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
       });
 
-      // prevent image click from bubbling (so clicking the image doesn't close)
       modalImage.addEventListener('click', function(e){ e.stopPropagation(); });
 
     })();
