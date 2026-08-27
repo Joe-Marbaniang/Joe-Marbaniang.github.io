@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Jonathan Marbaniang | Portfolio</title>
 
   <!-- Favicon -->
@@ -14,14 +15,15 @@
   <link rel="manifest" href="manifest.json">
 
   <!-- SEO -->
-  <meta name="description" content="Official portfolio of Jonathan Marbaniang — Scientist-B & Assistant Director (IT) at NIC. District Informatics Officer, Ri Bhoi, Meghalaya.">
-  <meta name="keywords" content="Jonathan Marbaniang, NIC Meghalaya, IIT Hyderabad, Scientist B, Technologist, Portfolio, Innovator, Ri Bhoi, Meghalaya, NIC India, IIT Hyderabad Alumni">
+  <meta name="description" content="Official portfolio of Jonathan Marbaniang — Scientist-B & Assistant Director (IT) at NIC. District Informatics Officer, Ri Bhoi, Meghalaya. IIT Hyderabad alumnus, technology professional and researcher.">
+  <meta name="keywords" content="Jonathan Marbaniang, NIC Meghalaya, IIT Hyderabad, Scientist B, Assistant Director IT, District Informatics Officer, Technologist, Portfolio, Innovator, Ri Bhoi, Meghalaya, NIC India, IIT Hyderabad Alumni, Concurrent Programming, GCList">
   <meta name="author" content="Jonathan Marbaniang">
-  <meta name="google-site-verification" content="ziZlJOB6DkZxDoWWtDQijPp4EDjFnA0uhBHtkQr9A28" />
 
-  <!-- Open Graph for social & Google rich previews -->
+  <meta name="google-site-verification" content="ziZlJOB6DkZxDoWWtDQijPp4EDjFnA0uhBHtkQr9A28">
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Jonathan Marbaniang | Portfolio">
-  <meta property="og:description" content="Scientist-B & Assistant Director (IT) at National Informatics Centre, India. IIT Hyderabad alumnus and technology innovator.">
+  <meta property="og:description" content="Scientist-B & Assistant Director (IT) at National Informatics Centre, India. IIT Hyderabad alumnus, technology professional and researcher.">
   <meta property="og:image" content="https://joe-marbaniang.github.io/jm.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://joe-marbaniang.github.io/">
@@ -33,53 +35,82 @@
   <meta name="twitter:image" content="https://joe-marbaniang.github.io/jm.png">
 
   <style>
-    :root{
+    :root {
       --accent: #004080;
+      --accent-light: #0073e6;
+      --accent-soft: #eef5fb;
       --muted: #555;
+      --text: #333;
+      --heading: #222;
       --card-bg: #ffffff;
+      --page-bg: #f7f9fc;
+      --border: #e2e8f0;
+      --success: #287a45;
     }
 
-    body{
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       font-family: Arial, Helvetica, sans-serif;
-      margin:0;
-      padding:0;
-      background: #ffffff;
-      color: #333;
+      margin: 0;
+      padding: 0;
+      background: var(--page-bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
-    header{
-      text-align:center;
-      padding: 42px 20px 28px;
+    /* =========================
+       HEADER
+       ========================= */
+
+    header {
+      text-align: center;
+      padding: 42px 20px 34px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .affiliations {
+      margin-bottom: 12px;
     }
 
     /* Logos */
-    header img.logo{
+    header img.logo {
       height: 60px;
       margin: 10px;
       vertical-align: middle;
       transition: transform .15s ease;
     }
-    header img.logo:hover{ transform: scale(1.05); }
 
-    /* Text link (replaces NIC logo) */
+    header img.logo:hover {
+      transform: scale(1.05);
+    }
+
+    /* NIC text link */
     header a[aria-label="NIC website"] {
-      display:inline-block;
-      font-weight:600;
-      color:var(--accent);
-      text-decoration:none;
-      font-size:1.1rem;
-      margin:10px;
-      vertical-align:middle;
+      display: inline-block;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin: 10px;
+      vertical-align: middle;
       transition: color .2s ease;
     }
+
     header a[aria-label="NIC website"]:hover {
-      color:#0073e6;
-      text-decoration:underline;
+      color: var(--accent-light);
+      text-decoration: underline;
     }
 
-    /* PROFILE - fixed square dimensions */
-    .profile-wrap{
+    /* Profile photo */
+    .profile-wrap {
       display: block;
       width: 240px;
       height: 240px;
@@ -87,91 +118,431 @@
       border-radius: 50%;
       overflow: hidden;
       border: 4px solid #ddd;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       cursor: pointer;
-      transition: transform .25s ease;
+      transition: transform .25s ease, box-shadow .25s ease;
       background: #f3f3f3;
     }
-    .profile-wrap:hover{ transform: scale(1.03); }
 
-    .profile-wrap img{
-      width:100%;
-      height:100%;
+    .profile-wrap:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+    }
+
+    .profile-wrap img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      display:block;
+      display: block;
     }
 
-    header h1{
+    header h1 {
       margin: 14px 0 6px;
-      font-size: 2.2rem;
-      color: #222;
+      font-size: 2.3rem;
+      color: var(--heading);
     }
-    header p{ margin:4px 0; color:var(--muted); font-size:1.02rem; }
 
-    main{ padding-bottom: 60px; }
+    .designation {
+      margin: 4px 0;
+      color: var(--accent);
+      font-size: 1.12rem;
+      font-weight: 600;
+    }
 
-    section{
+    header p {
+      margin: 5px 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .professional-summary {
+      max-width: 760px;
+      margin: 18px auto 0;
+      font-size: 1.04rem;
+      color: #444;
+    }
+
+    .professional-summary strong {
+      color: var(--heading);
+    }
+
+    /* =========================
+       MAIN
+       ========================= */
+
+    main {
+      padding: 10px 0 60px;
+    }
+
+    section {
       max-width: 920px;
       margin: 28px auto;
-      padding: 20px;
+      padding: 24px;
       background: var(--card-bg);
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
 
-    h2{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      color:var(--accent);
-      font-size:1.35rem;
-      margin-bottom:14px;
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin: 0 0 18px;
     }
 
-    ul{ padding-left:20px; list-style-type: square; margin:0; }
-    li{ margin-bottom:10px; }
+    h3 {
+      margin: 0 0 7px;
+      color: var(--heading);
+      font-size: 1.18rem;
+    }
 
-    a{ color: var(--accent); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
+    ul {
+      padding-left: 20px;
+      list-style-type: square;
+      margin: 0;
+    }
 
-    /* IMAGE MODAL */
-    .modal{
-      display:none;
-      position:fixed;
-      z-index:1200;
-      inset:0;
-      background: rgba(0,0,0,0.8);
-      align-items:center;
-      justify-content:center;
+    li {
+      margin-bottom: 12px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       INTRO / PROFILE
+       ========================= */
+
+    .profile-links {
+      margin-top: 12px;
+    }
+
+    .profile-links a {
+      font-weight: 600;
+    }
+
+    /* =========================
+       FEATURED PROJECTS
+       ========================= */
+
+    .section-intro {
+      margin-top: -5px;
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 18px;
+      background: #fff;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .project-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+      border-color: #cbd9e8;
+    }
+
+    .project-card.featured {
+      border-left: 4px solid var(--accent);
+    }
+
+    .project-meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 10px;
+    }
+
+    .project-description {
+      margin: 8px 0 13px;
+    }
+
+    .project-description p {
+      margin: 0 0 10px;
+    }
+
+    .project-award {
+      margin: 12px 0;
+      padding: 10px 12px;
+      background: #fff8e6;
+      border-left: 3px solid #d49b00;
+      border-radius: 5px;
+      font-size: 0.95rem;
+    }
+
+    .project-award strong {
+      color: #755600;
+    }
+
+    .project-award a {
+      color: #755600;
+      font-weight: 700;
+    }
+
+    .project-award a:hover {
+      color: #004080;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 12px 0 15px;
+    }
+
+    .tech-tag {
+      display: inline-block;
+      padding: 4px 9px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 5px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .project-button {
+      display: inline-block;
+      padding: 7px 12px;
+      border: 1px solid #c8d5e2;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      background: #fff;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
+    }
+
+    .project-button:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .project-button.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .project-button.primary:hover {
+      background: #005a9e;
+      border-color: #005a9e;
+    }
+
+    /* =========================
+       WORK EXPERIENCE
+       ========================= */
+
+    .experience-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .experience-item {
+      position: relative;
+      padding-left: 20px;
+      border-left: 2px solid #d9e3ed;
+      margin-left: 5px;
+      padding-bottom: 19px;
+    }
+
+    .experience-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .experience-item::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 5px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 1px #cbd8e5;
+    }
+
+    .experience-title {
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .experience-date {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 2px;
+    }
+
+    /* =========================
+       EDUCATION
+       ========================= */
+
+    .education-item {
+      margin-bottom: 20px;
+    }
+
+    .education-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .education-title {
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .education-institution {
+      color: var(--muted);
+    }
+
+    .research-paper {
+      margin-top: 9px;
+      padding: 10px 12px;
+      background: #f8fafc;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .paper-links {
+      margin-top: 5px;
+      font-size: 0.92rem;
+    }
+
+    /* =========================
+       TECHNICAL SKILLS
+       ========================= */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .skill-group {
+      padding: 15px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: #fbfcfe;
+    }
+
+    .skill-group h3 {
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .skill-group p {
+      margin: 0;
+      color: #444;
+      font-size: 0.94rem;
+    }
+
+    /* =========================
+       ACHIEVEMENTS
+       ========================= */
+
+    .achievement-highlight {
+      padding: 15px;
+      margin-bottom: 15px;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+    }
+
+    .achievement-highlight strong {
+      color: var(--accent);
+    }
+
+    .achievement-highlight a {
+      font-weight: 700;
+    }
+
+    /* =========================
+       HOBBIES
+       ========================= */
+
+    .hobbies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .hobby {
+      padding: 7px 13px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #fafafa;
+      color: #444;
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       IMAGE MODAL
+       ========================= */
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1200;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
       padding: 24px;
     }
-    .modal.open{ display:flex; }
 
-    .modal-inner{
-      position:relative;
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-inner {
+      position: relative;
       max-width: 96%;
       max-height: 92vh;
       width: auto;
       border-radius: 10px;
       overflow: hidden;
       background: transparent;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .modal-inner img{
-      display:block;
-      max-width:100%;
+    .modal-inner img {
+      display: block;
+      max-width: 100%;
       max-height: 92vh;
       width: auto;
       height: auto;
       border-radius: 6px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
     }
 
-    .modal-close{
-      position:absolute;
+    .modal-close {
+      position: absolute;
       top: 8px;
       right: 10px;
       color: #fff;
@@ -179,182 +550,811 @@
       line-height: 28px;
       cursor: pointer;
       padding: 6px 10px;
-      border-radius:6px;
-      background: rgba(0,0,0,0.25);
+      border: 0;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.25);
       transition: background .15s;
     }
-    .modal-close:hover{ background: rgba(255,255,255,0.12); }
 
-    /* Responsive sizes */
-    @media (max-width: 900px){
-      .profile-wrap{ width:200px; height:200px; }
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.12);
     }
-    @media (max-width: 640px){
-      header{ padding: 28px 12px 18px; }
-      .profile-wrap{ width:160px; height:160px; }
-      header h1{ font-size:1.6rem; }
-      section{ margin:18px 12px; padding:16px; }
-      h2{ font-size:1.15rem; }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+      text-align: center;
+      padding: 25px 20px 35px;
+      color: #777;
+      font-size: 0.88rem;
     }
-    @media (max-width: 420px){
-      .profile-wrap{ width:140px; height:140px; }
-      header h1{ font-size:1.35rem; }
+
+    /* =========================
+       RESPONSIVE
+       ========================= */
+
+    @media (max-width: 900px) {
+      .profile-wrap {
+        width: 200px;
+        height: 200px;
+      }
+
+      section {
+        margin-left: 18px;
+        margin-right: 18px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 28px 12px 22px;
+      }
+
+      .profile-wrap {
+        width: 160px;
+        height: 160px;
+      }
+
+      header h1 {
+        font-size: 1.75rem;
+      }
+
+      .designation {
+        font-size: 1rem;
+      }
+
+      section {
+        margin: 18px 12px;
+        padding: 17px;
+      }
+
+      h2 {
+        font-size: 1.18rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        padding: 16px;
+      }
+
+      .project-links {
+        gap: 7px;
+      }
+
+      .project-button {
+        font-size: 0.84rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .profile-wrap {
+        width: 140px;
+        height: 140px;
+      }
+
+      header h1 {
+        font-size: 1.45rem;
+      }
+
+      header p {
+        font-size: 0.94rem;
+      }
+
+      .professional-summary {
+        font-size: 0.95rem;
+      }
+
+      .tech-tags {
+        gap: 5px;
+      }
+
+      .tech-tag {
+        font-size: 0.76rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
+  <!-- =========================
+       HEADER
+       ========================= -->
+
   <header>
-    <a href="https://meg.nic.in/directory/" target="_blank" aria-label="NIC website">National Informatics Centre</a>
 
-    <a href="https://www.iith.ac.in/" target="_blank" aria-label="IIT Hyderabad website">
-      <img src="iith.png" alt="IIT Hyderabad Logo" class="logo">
-    </a>
+    <div class="affiliations">
 
-    <!-- clickable circular wrapper -->
-    <a href="#" id="profileTrigger" class="profile-wrap" aria-label="Open full profile photo">
-      <img src="joe.jpg" alt="Jonathan Marbaniang profile photo" id="profileImg">
+      <a
+        href="https://meg.nic.in/directory/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="NIC website">
+        National Informatics Centre
+      </a>
+
+      <a
+        href="https://www.iith.ac.in/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="IIT Hyderabad website">
+        <img src="iith.png" alt="IIT Hyderabad Logo" class="logo">
+      </a>
+
+    </div>
+
+    <!-- Clickable circular profile photo -->
+    <a
+      href="#"
+      id="profileTrigger"
+      class="profile-wrap"
+      aria-label="Open full profile photo">
+      <img
+        src="joe.jpg"
+        alt="Jonathan Marbaniang profile photo"
+        id="profileImg">
     </a>
 
     <h1>Jonathan Marbaniang</h1>
-    <p>Scientist - B &amp; Assistant Director (IT)</p>
-    <p>
-      <a href="https://meg.nic.in/directory/" target="_blank"><strong>National Informatics Centre</strong></a>
-      &nbsp;|&nbsp;
-      <a href="https://ribhoi.gov.in/nic/" target="_blank">District Informatics Officer, Ri Bhoi District, Meghalaya</a>
+
+    <p class="designation">
+      Scientist-B &amp; Assistant Director (IT)
     </p>
+
+    <p>
+      <a
+        href="https://meg.nic.in/directory/"
+        target="_blank"
+        rel="noopener noreferrer">
+        <strong>National Informatics Centre</strong>
+      </a>
+      &nbsp;|&nbsp;
+      <a
+        href="https://ribhoi.gov.in/nic/"
+        target="_blank"
+        rel="noopener noreferrer">
+        District Informatics Officer, Ri Bhoi District, Meghalaya
+      </a>
+    </p>
+
+    <div class="professional-summary">
+      Technology professional working at the intersection of
+      <strong>e-Governance, software engineering and computer science research</strong>.
+      IIT Hyderabad alumnus with experience in government technology,
+      software development, concurrent programming and technology-driven
+      public services.
+    </div>
+
   </header>
 
+
   <main>
-    <section>
+
+    <!-- =========================
+         FEATURED PROJECTS
+         ========================= -->
+
+    <section id="projects">
+
+      <h2>🚀 Featured Projects</h2>
+
+      <p class="section-intro">
+        Selected technical and research projects highlighting software
+        development, systems programming and technology innovation.
+      </p>
+
+      <!-- GCList -->
+
+      <div class="project-card featured">
+
+        <h3>GCList: Garbage Collection in Concurrent Sets</h3>
+
+        <div class="project-meta">
+          M.Tech Research Project &nbsp;•&nbsp;
+          Indian Institute of Technology Hyderabad
+        </div>
+
+        <div class="project-description">
+
+          <p>
+            Designed and evaluated <strong>GCList</strong>, a concurrent-set
+            representation with application-specific memory reclamation
+            and node reuse. The work explores both <strong>lock-based</strong>
+            and <strong>lock-free</strong> implementations for concurrent
+            linked sets.
+          </p>
+
+          <p>
+            The research addresses memory reclamation challenges in
+            concurrent data structures and evaluates GCList against
+            approaches including LazyList, Harris' LockFreeList,
+            Shared Pointers and Hazard Pointers.
+          </p>
+
+        </div>
+
+        <div class="project-award">
+          🏆
+          <a
+            href="https://cse.iith.ac.in/news/2018-05-02-Achievements-Awards.html"
+            target="_blank"
+            rel="noopener noreferrer">
+            <strong>Best M.Tech Project 2018 by AMD</strong>
+          </a>
+        </div>
+
+        <div class="tech-tags">
+          <span class="tech-tag">C++</span>
+          <span class="tech-tag">Concurrent Programming</span>
+          <span class="tech-tag">Lock-Free Algorithms</span>
+          <span class="tech-tag">Memory Reclamation</span>
+          <span class="tech-tag">Multithreading</span>
+          <span class="tech-tag">Data Structures</span>
+        </div>
+
+        <div class="project-links">
+
+          <a
+            class="project-button primary"
+            href="https://raiith.krc.iith.ac.in/entities/publication/70de8048-b8c5-4861-94a0-c4c03ef9461b"
+            target="_blank"
+            rel="noopener noreferrer">
+            Thesis
+          </a>
+
+          <a
+            class="project-button"
+            href="https://arxiv.org/pdf/1806.00834v1"
+            target="_blank"
+            rel="noopener noreferrer">
+            arXiv v1
+          </a>
+
+          <a
+            class="project-button"
+            href="https://arxiv.org/pdf/1806.00834v2"
+            target="_blank"
+            rel="noopener noreferrer">
+            arXiv v2
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- e-Governance -->
+
+      <div class="project-card">
+
+        <h3>e-Governance &amp; Public Service Technology</h3>
+
+        <div class="project-meta">
+          National Informatics Centre
+        </div>
+
+        <div class="project-description">
+
+          <p>
+            Contributed to technology initiatives and e-Governance
+            projects supporting digital public services through the
+            <a
+              href="https://meg.nic.in/directory/"
+              target="_blank"
+              rel="noopener noreferrer">
+              National Informatics Centre
+            </a>.
+          </p>
+
+          <p>
+            Current responsibilities also include technology support and
+            digital initiatives at the district level as
+            <strong>District Informatics Officer, Ri Bhoi District</strong>.
+          </p>
+
+        </div>
+
+        <div class="tech-tags">
+          <span class="tech-tag">e-Governance</span>
+          <span class="tech-tag">Government Technology</span>
+          <span class="tech-tag">IT Systems</span>
+          <span class="tech-tag">Digital Public Services</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         WORK EXPERIENCE
+         ========================= -->
+
+    <section id="experience">
+
       <h2>💼 Work Experience</h2>
-      <ul>
-        <li>
-          <strong>Scientist-B &amp; Assistant Director (IT)</strong>,
-          <a href="https://meg.nic.in/directory/" target="_blank">National Informatics Centre, Government of India</a><br>
-          <em>13th December 2022 – Present</em><br>
-          Also posted as <strong><a href="https://ribhoi.gov.in/nic/" target="_blank">District Informatics Officer</a></strong>, Ri Bhoi District, Meghalaya.
-        </li>
-        <li>
-          <strong><a href="https://mpsc.meghalaya.gov.in/results/Result25Nov2021a.pdf" target="_blank">Junior Informatics Officer</a></strong>,
-          <a href="https://ditmeghalaya.gov.in/" target="_blank">Information Technology &amp; Communication Department, Government of Meghalaya</a><br>
-          <em>17th March 2022 – 12th December 2022</em>
-        </li>
-        <li>
-          <strong><a href="https://mpsc.meghalaya.gov.in/results/Result29Nov2019c.pdf" target="_blank">Assistant System Engineer</a></strong>,
-          <a href="https://megeducation.gov.in/dhte/pages/dhte.html" target="_blank">Directorate of Higher &amp; Technical Education, Government of Meghalaya</a><br>
-          <em>9th January 2020 – 16th March 2022</em>
-        </li>
-        <li>
-          <strong>Software Development Engineer</strong>, PRISM (formerly OYO)<br>
-          <em>31st July 2018 – 2nd January 2020</em>
-        </li>
-      </ul>
-    </section>
 
-    <section>
-      <h2>🎓 Education</h2>
-      <ul>
-        <li>
-          <strong><a href="https://cse.iith.ac.in/people/mtech/ta-2016a.html" target="_blank">Master of Technology (M.Tech)</strong>, Computer Science &amp; Engineering</a><br>
-          <em><a href="https://www.iith.ac.in/" target="_blank">Indian Institute of Technology, Hyderabad</a></em><br>
-          Thesis:
-            <a href="https://raiith.krc.iith.ac.in/entities/publication/70de8048-b8c5-4861-94a0-c4c03ef9461b"
-               target="_blank"
-               rel="noopener noreferrer">
-              <em>GCList: Garbage Collection in Concurrent Sets</em>
+      <div class="experience-list">
+
+        <div class="experience-item">
+
+          <div class="experience-title">
+            Scientist-B &amp; Assistant Director (IT),
+            <a
+              href="https://meg.nic.in/directory/"
+              target="_blank"
+              rel="noopener noreferrer">
+              National Informatics Centre, Government of India
             </a>
-            <br>
-            
-            <span style="font-size: 0.95rem;">
-              Research paper:
-              <a href="https://arxiv.org/pdf/1806.00834v1"
-                 target="_blank"
-                 rel="noopener noreferrer">
-                arXiv v1 (2018)
+          </div>
+
+          <div class="experience-date">
+            13th December 2022 – Present
+          </div>
+
+          <div>
+            Also posted as
+            <strong>
+              <a
+                href="https://ribhoi.gov.in/nic/"
+                target="_blank"
+                rel="noopener noreferrer">
+                District Informatics Officer
               </a>
-              &nbsp;|&nbsp;
-              <a href="https://arxiv.org/pdf/1806.00834v2"
-                 target="_blank"
-                 rel="noopener noreferrer">
-                arXiv v2 (2018)
-              </a>
-            </span>
-            <br>
-            
-            CGPA: 8.75
-        </li>
-        <li>
-          <strong>Bachelor of Engineering (B.E.)</strong>, Computer Science &amp; Engineering<br>
-          <em>Rajiv Gandhi College of Engineering and Research, RTM Nagpur University</em><br>
-          CGPA: 8.36
-        </li>
-      </ul>
+            </strong>,
+            Ri Bhoi District, Meghalaya.
+          </div>
+
+        </div>
+
+
+        <div class="experience-item">
+
+          <div class="experience-title">
+
+            <a
+              href="https://mpsc.meghalaya.gov.in/results/Result25Nov2021a.pdf"
+              target="_blank"
+              rel="noopener noreferrer">
+              Junior Informatics Officer
+            </a>,
+
+            <a
+              href="https://ditmeghalaya.gov.in/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Information Technology &amp; Communication Department,
+              Government of Meghalaya
+            </a>
+
+          </div>
+
+          <div class="experience-date">
+            17th March 2022 – 12th December 2022
+          </div>
+
+        </div>
+
+
+        <div class="experience-item">
+
+          <div class="experience-title">
+
+            <a
+              href="https://mpsc.meghalaya.gov.in/results/Result29Nov2019c.pdf"
+              target="_blank"
+              rel="noopener noreferrer">
+              Assistant System Engineer
+            </a>,
+
+            <a
+              href="https://megeducation.gov.in/dhte/pages/dhte.html"
+              target="_blank"
+              rel="noopener noreferrer">
+              Directorate of Higher &amp; Technical Education,
+              Government of Meghalaya
+            </a>
+
+          </div>
+
+          <div class="experience-date">
+            9th January 2020 – 16th March 2022
+          </div>
+
+        </div>
+
+
+        <div class="experience-item">
+
+          <div class="experience-title">
+            Software Development Engineer, PRISM (formerly OYO)
+          </div>
+
+          <div class="experience-date">
+            31st July 2018 – 2nd January 2020
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
 
-    <section>
+
+    <!-- =========================
+         TECHNICAL SKILLS
+         ========================= -->
+
+    <section id="skills">
+
+      <h2>🛠️ Technical Skills</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <h3>Programming</h3>
+          <p>
+            C/C++, Java, Python, JavaScript
+          </p>
+        </div>
+
+        <div class="skill-group">
+          <h3>Software &amp; Web Development</h3>
+          <p>
+            Spring Boot, REST APIs, HTML, CSS, JavaScript,
+            Web Application Development
+          </p>
+        </div>
+
+        <div class="skill-group">
+          <h3>Systems &amp; Concurrency</h3>
+          <p>
+            Concurrent Programming, Multithreading,
+            Lock-Free Data Structures, Memory Reclamation,
+            Parallel Programming
+          </p>
+        </div>
+
+        <div class="skill-group">
+          <h3>Data &amp; Backend</h3>
+          <p>
+            Relational Databases, SQL, Backend Systems,
+            API Development
+          </p>
+        </div>
+
+        <div class="skill-group">
+          <h3>e-Governance &amp; IT</h3>
+          <p>
+            e-Governance, Government IT Systems,
+            Digital Public Services, Technology Operations
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION & RESEARCH
+         ========================= -->
+
+    <section id="education">
+
+      <h2>🎓 Education &amp; Research</h2>
+
+      <div class="education-item">
+
+        <div class="education-title">
+
+          <a
+            href="https://cse.iith.ac.in/people/mtech/ta-2016a.html"
+            target="_blank"
+            rel="noopener noreferrer">
+            Master of Technology (M.Tech), Computer Science &amp; Engineering
+          </a>
+
+        </div>
+
+        <div class="education-institution">
+
+          <em>
+            <a
+              href="https://www.iith.ac.in/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Indian Institute of Technology Hyderabad
+            </a>
+          </em>
+
+        </div>
+
+        <div class="research-paper">
+
+          <strong>Thesis:</strong>
+
+          <a
+            href="https://raiith.krc.iith.ac.in/entities/publication/70de8048-b8c5-4861-94a0-c4c03ef9461b"
+            target="_blank"
+            rel="noopener noreferrer">
+            <em>GCList: Garbage Collection in Concurrent Sets</em>
+          </a>
+
+          <div class="paper-links">
+
+            <strong>Research paper:</strong>
+
+            <a
+              href="https://arxiv.org/pdf/1806.00834v1"
+              target="_blank"
+              rel="noopener noreferrer">
+              arXiv v1 (2018)
+            </a>
+
+            &nbsp;|&nbsp;
+
+            <a
+              href="https://arxiv.org/pdf/1806.00834v2"
+              target="_blank"
+              rel="noopener noreferrer">
+              arXiv v2 (2018)
+            </a>
+
+          </div>
+
+          <div style="margin-top: 7px;">
+            🏆
+            <a
+              href="https://cse.iith.ac.in/news/2018-05-02-Achievements-Awards.html"
+              target="_blank"
+              rel="noopener noreferrer">
+              Best M.Tech Project 2018 by AMD
+            </a>
+          </div>
+
+        </div>
+
+        <div style="margin-top: 8px;">
+          <strong>CGPA:</strong> 8.75
+        </div>
+
+      </div>
+
+
+      <div class="education-item">
+
+        <div class="education-title">
+          Bachelor of Engineering (B.E.),
+          Computer Science &amp; Engineering
+        </div>
+
+        <div class="education-institution">
+          <em>
+            Rajiv Gandhi College of Engineering and Research,
+            RTM Nagpur University
+          </em>
+        </div>
+
+        <div style="margin-top: 6px;">
+          <strong>CGPA:</strong> 8.36
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACHIEVEMENTS
+         ========================= -->
+
+    <section id="achievements">
+
       <h2>🏆 Achievements</h2>
+
+      <div class="achievement-highlight">
+
+        <a
+          href="https://cse.iith.ac.in/news/2018-05-02-Achievements-Awards.html"
+          target="_blank"
+          rel="noopener noreferrer">
+          <strong>Best M.Tech Project 2018 by AMD</strong>
+        </a>
+
+        <br>
+
+        Awarded for the GCList research project at
+        <a
+          href="https://www.iith.ac.in/"
+          target="_blank"
+          rel="noopener noreferrer">
+          IIT Hyderabad
+        </a>.
+
+      </div>
+
       <ul>
-        <li>Contributed to major e-Governance projects under the <a href="https://meg.nic.in/directory/" target="_blank">National Informatics Centre</a>.</li>
-        <li>Completed advanced research work at <a href="https://www.iith.ac.in/" target="_blank">IIT Hyderabad</a> in Parallel &amp; Concurrent Programming.</li>
-        <li>Awarded <a href="https://cse.iith.ac.in/news/2018-05-02-Achievements-Awards.html" target="_blank">Best M.Tech Project 2018 by AMD</a>.</li>
+
+        <li>
+          Contributed to major e-Governance projects under the
+          <a
+            href="https://meg.nic.in/directory/"
+            target="_blank"
+            rel="noopener noreferrer">
+            National Informatics Centre
+          </a>.
+        </li>
+
+        <li>
+          Completed advanced research work at
+          <a
+            href="https://www.iith.ac.in/"
+            target="_blank"
+            rel="noopener noreferrer">
+            IIT Hyderabad
+          </a>
+          in Parallel &amp; Concurrent Programming.
+        </li>
+
+        <li>
+          Developed software and technology solutions across
+          government and private-sector environments.
+        </li>
+
       </ul>
+
     </section>
 
-    <section>
-      <h2>⚽ Hobbies &amp; Interests</h2>
-      <ul>
-        <li>Football</li>
-        <li>Novels</li>
-        <li>TV Series</li>
-        <li>Anime</li>
-      </ul>
+
+    <!-- =========================
+         HOBBIES
+         ========================= -->
+
+    <section id="interests">
+
+      <h2>⚽ Interests</h2>
+
+      <div class="hobbies">
+
+        <span class="hobby">⚽ Football</span>
+        <span class="hobby">📚 Novels</span>
+        <span class="hobby">📺 TV Series</span>
+        <span class="hobby">🎌 Anime</span>
+
+      </div>
+
     </section>
+
   </main>
 
-  <!-- IMAGE MODAL -->
-  <div id="imgModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-inner" role="document">
-      <button class="modal-close" id="modalClose" aria-label="Close image">&times;</button>
-      <img id="modalImage" src="joe.jpg" alt="Jonathan Marbaniang - full photo">
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
+
+  <footer>
+
+    <div>
+      © Jonathan Marbaniang
     </div>
+
+    <div style="margin-top: 5px;">
+      Scientist-B &amp; Assistant Director (IT) · National Informatics Centre
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       IMAGE MODAL
+       ========================= -->
+
+  <div
+    id="imgModal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true">
+
+    <div class="modal-inner" role="document">
+
+      <button
+        class="modal-close"
+        id="modalClose"
+        aria-label="Close image">
+        &times;
+      </button>
+
+      <img
+        id="modalImage"
+        src="joe.jpg"
+        alt="Jonathan Marbaniang - full photo">
+
+    </div>
+
   </div>
 
+
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
+
   <script>
-    (function(){
+    (function () {
+
       const trigger = document.getElementById('profileTrigger');
       const modal = document.getElementById('imgModal');
       const modalClose = document.getElementById('modalClose');
       const modalImage = document.getElementById('modalImage');
 
-      // open modal
-      trigger.addEventListener('click', function(e){
+      /* Open modal */
+      trigger.addEventListener('click', function (e) {
+
         e.preventDefault();
+
         modal.classList.add('open');
-        modal.setAttribute('aria-hidden','false');
-        modalImage.src = document.getElementById('profileImg').src;
+        modal.setAttribute('aria-hidden', 'false');
+
+        modalImage.src =
+          document.getElementById('profileImg').src;
+
         modalClose.focus();
+
       });
 
-      // close handlers
-      function closeModal(){
+
+      /* Close modal */
+      function closeModal() {
+
         modal.classList.remove('open');
-        modal.setAttribute('aria-hidden','true');
+        modal.setAttribute('aria-hidden', 'true');
+
         trigger.focus();
+
       }
+
+
       modalClose.addEventListener('click', closeModal);
 
-      modal.addEventListener('click', function(e){
-        if (e.target === modal) closeModal();
+
+      /* Close when clicking outside image */
+      modal.addEventListener('click', function (e) {
+
+        if (e.target === modal) {
+          closeModal();
+        }
+
       });
 
-      document.addEventListener('keydown', function(e){
-        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+
+      /* Close with Escape key */
+      document.addEventListener('keydown', function (e) {
+
+        if (
+          e.key === 'Escape' &&
+          modal.classList.contains('open')
+        ) {
+          closeModal();
+        }
+
       });
 
-      modalImage.addEventListener('click', function(e){ e.stopPropagation(); });
+
+      /* Prevent image click from closing modal */
+      modalImage.addEventListener('click', function (e) {
+
+        e.stopPropagation();
+
+      });
 
     })();
   </script>
+
 </body>
 </html>
