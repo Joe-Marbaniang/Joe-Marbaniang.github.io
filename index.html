@@ -398,38 +398,72 @@
     }
 
     /* =========================
-       EDUCATION
-       ========================= */
+   EDUCATION & RESEARCH TIMELINE
+   ========================= */
 
-    .education-item {
-      margin-bottom: 20px;
-    }
+.education-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    .education-item:last-child {
-      margin-bottom: 0;
-    }
+.education-item {
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid #d9e3ed;
+  margin-left: 5px;
+  padding-bottom: 22px;
+}
 
-    .education-title {
-      font-weight: 700;
-      color: var(--heading);
-    }
+.education-item:last-child {
+  padding-bottom: 0;
+}
 
-    .education-institution {
-      color: var(--muted);
-    }
+.education-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 5px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #cbd8e5;
+}
 
-    .research-paper {
-      margin-top: 9px;
-      padding: 10px 12px;
-      background: #f8fafc;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-    }
+.education-year {
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
 
-    .paper-links {
-      margin-top: 5px;
-      font-size: 0.92rem;
-    }
+.education-title {
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.education-institution {
+  color: var(--muted);
+}
+
+.education-details {
+  margin-top: 7px;
+}
+
+.research-paper {
+  margin-top: 9px;
+  padding: 10px 12px;
+  background: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.paper-links {
+  margin-top: 5px;
+  font-size: 0.92rem;
+}
 
     /* =========================
        TECHNICAL SKILLS
@@ -1042,112 +1076,194 @@
 
 
     <!-- =========================
-         EDUCATION & RESEARCH
-         ========================= -->
+     EDUCATION & RESEARCH
+     ========================= -->
 
-    <section id="education">
+<section id="education">
 
-      <h2>🎓 Education &amp; Research</h2>
+  <h2>🎓 Education &amp; Research</h2>
 
-      <div class="education-item">
+  <div class="education-list">
 
-        <div class="education-title">
+    <!-- M.Tech - 2018 -->
 
+    <div class="education-item">
+
+      <div class="education-year">
+        2018
+      </div>
+
+      <div class="education-title">
+
+        <a
+          href="https://cse.iith.ac.in/people/mtech/ta-2016a.html"
+          target="_blank"
+          rel="noopener noreferrer">
+          Master of Technology (M.Tech), Computer Science &amp; Engineering
+        </a>
+
+      </div>
+
+      <div class="education-institution">
+
+        <em>
           <a
-            href="https://cse.iith.ac.in/people/mtech/ta-2016a.html"
+            href="https://www.iith.ac.in/"
             target="_blank"
             rel="noopener noreferrer">
-            Master of Technology (M.Tech), Computer Science &amp; Engineering
+            Indian Institute of Technology Hyderabad
+          </a>
+        </em>
+
+      </div>
+
+      <div class="education-details">
+
+        <strong>CGPA:</strong> 8.75
+
+      </div>
+
+      <div class="research-paper">
+
+        <strong>Research Thesis:</strong>
+
+        <a
+          href="https://raiith.krc.iith.ac.in/entities/publication/70de8048-b8c5-4861-94a0-c4c03ef9461b"
+          target="_blank"
+          rel="noopener noreferrer">
+          <em>GCList: Garbage Collection in Concurrent Sets</em>
+        </a>
+
+        <div class="paper-links">
+
+          <strong>Research paper:</strong>
+
+          <a
+            href="https://arxiv.org/pdf/1806.00834v1"
+            target="_blank"
+            rel="noopener noreferrer">
+            arXiv v1 (2018)
+          </a>
+
+          &nbsp;|&nbsp;
+
+          <a
+            href="https://arxiv.org/pdf/1806.00834v2"
+            target="_blank"
+            rel="noopener noreferrer">
+            arXiv v2 (2018)
           </a>
 
         </div>
 
-        <div class="education-institution">
+        <div style="margin-top: 7px;">
 
-          <em>
-            <a
-              href="https://www.iith.ac.in/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Indian Institute of Technology Hyderabad
-            </a>
-          </em>
-
-        </div>
-
-        <div class="research-paper">
-
-          <strong>Thesis:</strong>
+          🏆
 
           <a
-            href="https://raiith.krc.iith.ac.in/entities/publication/70de8048-b8c5-4861-94a0-c4c03ef9461b"
+            href="https://cse.iith.ac.in/news/2018-05-02-Achievements-Awards.html"
             target="_blank"
             rel="noopener noreferrer">
-            <em>GCList: Garbage Collection in Concurrent Sets</em>
+            Best M.Tech Project 2018 by AMD
           </a>
 
-          <div class="paper-links">
-
-            <strong>Research paper:</strong>
-
-            <a
-              href="https://arxiv.org/pdf/1806.00834v1"
-              target="_blank"
-              rel="noopener noreferrer">
-              arXiv v1 (2018)
-            </a>
-
-            &nbsp;|&nbsp;
-
-            <a
-              href="https://arxiv.org/pdf/1806.00834v2"
-              target="_blank"
-              rel="noopener noreferrer">
-              arXiv v2 (2018)
-            </a>
-
-          </div>
-
-          <div style="margin-top: 7px;">
-            🏆
-            <a
-              href="https://cse.iith.ac.in/news/2018-05-02-Achievements-Awards.html"
-              target="_blank"
-              rel="noopener noreferrer">
-              Best M.Tech Project 2018 by AMD
-            </a>
-          </div>
-
-        </div>
-
-        <div style="margin-top: 8px;">
-          <strong>CGPA:</strong> 8.75
         </div>
 
       </div>
 
+    </div>
 
-      <div class="education-item">
 
-        <div class="education-title">
-          Bachelor of Engineering (B.E.),
-          Computer Science &amp; Engineering
-        </div>
 
-        <div class="education-institution">
-          <em>
-            Rajiv Gandhi College of Engineering and Research,
-            RTM Nagpur University
-          </em>
-        </div>
+    <!-- B.E. - 2016 -->
 
-        <div style="margin-top: 6px;">
-          <strong>CGPA:</strong> 8.36
-        </div>
+    <div class="education-item">
+
+      <div class="education-year">
+        2016
+      </div>
+
+      <div class="education-title">
+
+        Bachelor of Engineering (B.E.),
+        Computer Science &amp; Engineering
 
       </div>
 
-    </section>
+      <div class="education-institution">
+
+        <em>
+          Rajiv Gandhi College of Engineering and Research,
+          RTM Nagpur University
+        </em>
+
+      </div>
+
+      <div class="education-details">
+
+        <strong>CGPA:</strong> 8.36
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Class XII - 2012 -->
+
+    <div class="education-item">
+
+      <div class="education-year">
+        2012
+      </div>
+
+      <div class="education-title">
+
+        Higher Secondary (Class XII)
+
+      </div>
+
+      <div class="education-institution">
+
+        <em>
+          Jawahar Navodaya Vidyalaya, Mukhla,
+          West Jaintia Hills, Meghalaya
+        </em>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Class X - 2010 -->
+
+    <div class="education-item">
+
+      <div class="education-year">
+        2010
+      </div>
+
+      <div class="education-title">
+
+        Secondary School (Class X)
+
+      </div>
+
+      <div class="education-institution">
+
+        <em>
+          Jawahar Navodaya Vidyalaya, Mawphlang,
+          East Khasi Hills, Meghalaya
+        </em>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 
     <!-- =========================
